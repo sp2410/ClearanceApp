@@ -1,0 +1,30 @@
+<h2>ITEM</h2>
+<div class="card text-center" style="width: 90%; padding: 10px 10px; border: 1px solid black; margin: 2px 2px;">
+	<div class="card-block">
+	<h1>ITEM DESCRIPTION</h1>
+		      <h3 class="card-title">Barcode ID: <%= @item.id %></h3> 	      	
+		      <p class="card-text">Size: <%= @item.size %></p>
+		       <div class="card text-center" style="width: 2rem; height: 2rem; border: 1px solid black; background-color: <%= @item.color if @item.color %>; "></div>	
+		      
+		      <p class="card-text">Color: <%= @item.color %></p>	     
+		      	      	
+		      <p class="card-text">Clearance Batch id: <%= @item.clearance_batch_id.to_i if ClearanceBatch.find(@item.clearance_batch_id.to_i) %></p>
+		      
+		      <%= render 'items/status', :item => @item %>
+
+		      <p class="card-text">Created At: <%= l(@item.created_at, format: :short) %></p>      
+		      <p class="card-text">Updated At: <%= l(@item.updated_at, format: :short) %></p>	
+
+	<h1>STYLE DESCRIPTION</h1>
+
+			<p class="card-text">Style Name: <%= @style.name %></p>
+			<p class="card-text">Style Id: <%= @style.id %></p>  
+		    <p class="card-text">Wholesale Price: <%= @style.wholesale_price %></p>  
+		    <p class="card-text">Retail Price: <%= @style.retail_price %></p>  
+		    <p class="card-text">Type: <%= @style.type %></p>  
+		      
+		    <p class="card-text">Style Created At: <%= l(@style.created_at, format: :short) %></p> 
+		    <p class="card-text">Style Updated At: <%= l(@style.updated_at, format: :short) %></p>
+	</div>
+</div>
+

@@ -1,0 +1,26 @@
+<h2>MY BATCHES</h2>
+
+<%- @mybatches.each do |clearance_batch| -%>
+
+  <div class="card text-center" style="width: 25rem; padding: 10px 10px; border: 1px solid black; margin: 2px 2px;">
+    <div class="card-block">
+
+      <h3 class="card-title">Clearance Batch <%= clearance_batch.id %></h3>  
+      <p class="card-text">Created at: <%= l(clearance_batch.created_at, format: :short) %></p>
+      <p class="card-text">Item Count: <%= clearance_batch.items.count %></p>             
+      
+      <hr>
+
+      <a href="/clearance_batches/<%= clearance_batch.id %>" class="btn btn-primary">VIEW ALL ITEMS</a>
+      <hr>
+      <a href="/undobatch/<%= clearance_batch.id %>" class="btn btn-primary">UNDO BUY</a>
+            
+    </div>
+  </div>
+
+  <%- end -%>
+
+
+
+
+

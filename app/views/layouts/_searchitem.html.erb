@@ -1,0 +1,4 @@
+<%= form_tag root_path, method: :get, class: 'navbar-form navbar-right' do %>        
+    <%= text_field_tag :searchitem, params[:searchitem], placeholder: 'Search Item By ID', class: 'form-control' %>  
+    <%= submit_tag 'Search Item', :name => nil, class: "btn btn-default" %>
+<% end %>

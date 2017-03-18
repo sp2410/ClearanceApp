@@ -1,0 +1,20 @@
+<table class="table table-striped clearance_batches">
+	<thead>
+	      <tr>
+	        <th>Employee Email</th>
+	        <th>Count of Items Processed</th>        
+	      </tr>
+	</thead>
+
+	<% user.each do |user| %>	    
+		  
+	<tbody>
+	      <tr>
+	        <td><%= user.email %> </td>
+	        <td><%= Item.where(user_id: user.id).count %></td>        
+	      </tr>
+	</tbody>
+		  	
+	<% end %>	
+
+</table>

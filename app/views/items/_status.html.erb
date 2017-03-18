@@ -1,0 +1,14 @@
+
+<%- if (item.clearance_batch) and (item.clearance_batch.status.eql? true) and ((item.status.eql? "sellable") || (item.status.eql? "clearanced")) -%>
+	<p class="card-text">Item Status: clearanced</p>
+	<p class="card-text">Cleared At: <%= item.price_sold %></p>
+<%- else -%>
+	<p class="card-text">Item Status: <%= item.status %></p>
+	<%- if item.status.eql? "clearanced" -%>
+		<p class="card-text">Cleared At: <%= item.price_sold %></p> 
+	<%- elsif item.status.eql? "sellable" -%>
+			<p class="card-text">Estimated Selling Price: <%= item.price_sold %></p> 
+	<%- elsif item.status.eql? "sold" -%>			      	
+			<p class="card-text">Sold At: <%= item.price_sold %> (Not Available) </p> 
+	<% end %>
+<%- end -%>

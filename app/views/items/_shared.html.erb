@@ -1,0 +1,5 @@
+<% if user_signed_in? %> 
+	<% unless current_user.role == "vendor" %>
+		<%= link_to 'Edit', edit_clearance_batch_item_path(batchid,itemid) if batchid.to_i %>	      
+	<% end %>
+<% end %>

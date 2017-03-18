@@ -1,0 +1,39 @@
+<h2>ALL ACTIVITIES</h2>
+<table class="table table-striped clearance_batches">
+	<thead>
+	      <tr>
+	        <th>User Email</th>
+	        <th>User Role</th>
+	        <th>Action</th>        
+	        <th>Took Action On</th>        
+	        <th>With Id</th>
+	        <th>Time</th>
+	      </tr>
+	</thead>
+
+	<% unless @activities == nil %>
+	<% @activities.each do |activity| %>
+
+		  
+		<tbody>
+		      <tr>		      
+		      	<td><%= User.find_by_id(activity.owner_id).email if activity.owner %> </td>
+		      	<td><%= User.find_by_id(activity.owner_id).role if activity.owner %> </td>
+		      	<td><%= activity.key.split(".")[-1] %></td> 
+		      	<td><%= activity.trackable_type %></td>
+		      	<td><%= activity.trackable_id %></td>
+		      	<td><%= l(activity.created_at, format: :short)     %></td>	    
+
+		      </tr>
+		</tbody>
+			  	
+	<% end %>
+	<% end %>
+
+</table>
+
+
+
+
+
+

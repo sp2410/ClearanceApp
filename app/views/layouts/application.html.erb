@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TakeHomeChallenge</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+  
+    <a href = "/"><h1 class = "text-center">Stitch Fix Clearance Tool</h1></a>
+  
+    <% if (user_signed_in?) %>            
+        <%= render "layouts/#{current_user.role}" %>
+        <%= render "layouts/signin" %>
+    <% else %>
+      <%= render "layouts/notsignin" %>      
+    <% end %>  
+
+  </div>
+</nav>
+
+<%= render "layouts/searchbatch" %> 
+<%= render "layouts/searchitem" %> 
+
+
+  <%- if flash[:notice] -%>
+    <div class="alert alert-info" role="alert">
+      <%= flash[:notice].html_safe %>
+    </div>
+  <%- end -%>
+  <%- if flash[:alert] -%>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:alert].html_safe %>
+    </div>
+  <%- end -%>
+  <%= yield %>
+</div>
+
+</body>
+</html>

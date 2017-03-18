@@ -1,0 +1,13 @@
+<% if user_signed_in? %> 
+	<% unless current_user.role == "vendor" %>
+		<table class="table table-striped clearance_batches">
+		<div class="card text-center" style="width: 25rem; padding: 10px 10px; border: 1px solid black">
+		  <div class="card-block">
+		  
+		    <%= link_to 'CREATE A BATCH', new_clearance_batch_path %>
+		  
+		  </div>
+		</div>
+		</table>
+	<% end %>
+<% end %>

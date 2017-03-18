@@ -1,0 +1,19 @@
+<% if user_signed_in? %> 
+  <% if current_user.role != "vendor"  %>
+      <% if clearance_batch.status == true %>
+        <p class = "btn btn-primary">BATCH SOLD</p>            
+      <% else %>
+        <%= link_to 'Delete Batch',  "/clearance_batches/#{clearance_batch.id}", data: {confirm: "Wait! Are you sure ?"}, method: :delete, class: "btn btn-primary"  %>
+            <p class = "btn btn-primary">TO BE SOLD</p>
+      <% end %>
+
+  <% else %>
+
+    <% if clearance_batch.status == false %>
+        <a href="/buy/<%= clearance_batch.id %>" class="btn btn-primary">BUY BATCH</a>
+    <% else %>
+        <p class = "btn btn-primary">ITEM SOLD</p>              
+    <% end %>
+  <% end %>        
+<% end %>
+      

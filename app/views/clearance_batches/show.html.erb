@@ -1,0 +1,33 @@
+<%= render 'clearance_batches/createitem' %>
+
+
+<h2 >CLEARANCE BATCH NUMBER <%= @clearance_in.id %> </h2>
+<% if @items.present? %>
+	<% @items.each do |item| %>
+
+		<div class="card text-center" style="width: 25rem; padding: 10px 10px; border: 1px solid black; margin: 2px 2px;">
+	    <div class="card-block">
+
+	      <h3 class="card-title">barcode ID: <%= item.id %></h3> 	      	
+	      <p class="card-text">Size: <%= item.size %></p>
+	       <div class="card text-center" style="width: 2rem; height: 2rem; border: 1px solid black; background-color: <%= item.color if item.color %>; "></div>	
+	      
+	      <p class="card-text">Color: <%= item.color %></p>	     
+	      
+	      
+	      	<%= render 'items/status', :item => item %>
+
+		<p class="card-text">Clearance Batch id: <%= item.clearance_batch_id.to_i if item.clearance_batch_id.to_i %></p>	 
+		<p class="card-text">Created At: <%= l(item.created_at, format: :short) %></p>      
+	      <p class="card-text">Updated At: <%= l(item.updated_at, format: :short) %></p>
+
+	      	<%= render 'items/shared', :batchid => @clearance_in.id, :itemid => item.id %>	      	
+
+	      <%= link_to 'Show', clearance_batch_item_path(@clearance_in.id,item.id) %>
+	    </div>
+	  </div>
+
+	<% end %>
+<% end %>
+
+

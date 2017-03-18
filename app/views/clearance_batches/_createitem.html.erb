@@ -1,0 +1,5 @@
+<% if user_signed_in? %> 
+	<% unless current_user.role == "vendor" %>
+		<%= link_to 'CREATE A NEW ITEM', new_clearance_batch_item_path(@clearance_in.id) %>
+	<% end %>
+<% end %>

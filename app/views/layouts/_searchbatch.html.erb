@@ -1,0 +1,5 @@
+
+<%= form_tag root_path, method: :get, class: 'navbar-form navbar-right' do %>        
+    <%= text_field_tag :search, params[:search], placeholder: 'Search Batch BY ID', class: 'form-control' %>  
+    <%= submit_tag 'Search Batch', :name => nil, class: "btn btn-default" %>
+<% end %>
