@@ -26,8 +26,6 @@ class ItemsController < ApplicationController
   def edit
     @batch = ClearanceBatch.find(params[:clearance_batch_id])
     @item = @batch.items.find(params[:id])
-  
-
   end
 
   # POST /items
